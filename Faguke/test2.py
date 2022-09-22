@@ -10,19 +10,17 @@ Luthien.speed(7)  # Endre farten til Luthien
 vindu = turtle.Screen()  # Navngir vinduet som popper op med grafisk informasjon
 
 master = Tk()  # Lager meny objektet
-master.geometry("250x100")  # setter størrelsen på drop down meny boksen
+master.geometry("300x300")  # setter størrelsen på drop down meny boksen
 master.title("Velg Figur")  # Setter titelen på meny vinduet
-var = StringVar(master)  # Datatype av meny teksten, kunne nok gjort dette mer optimalisert
-var.set("Trekant")  # Default meny teksten / option
+sider = StringVar(master)  # Datatype av meny teksten
+sider.set("Trekant")  # Default meny teksten / option
 # Lager drop down menyen å legger til "options" du kan trykke på
-option = OptionMenu(master, var, "Trekant", "Firkant", "Femkant", "Sekskant")
+option = OptionMenu(master, sider, "Trekant", "Firkant", "Femkant", "Sekskant")
 option.pack()
 
-
-# lager ok funktionen
+#lager ok funktionen
 def ok():
-    global sider  # Gjør sider en global variabel
-    sider = var.get()  # Setter sider variablen til det brukeren velger i menyen kunne vel gjort det lit mer optimalisert
+    print("Figur: "), sider.get()
     master.quit()  # lukker menyen
 
 
@@ -32,7 +30,7 @@ button.pack()
 
 mainloop()  # Kjører tkinter
 
-lengde = int(vindu.numinput("lengde", "Størrelse(px): "))
+lengde = int(vindu.numinput("lengde", "Størrelse: "))
 farge = vindu.textinput("farge", "Fill Colour (English):  ")  # definerer farge så brukeren kan velge farge til figuren
 linje = vindu.textinput("linje",
                         "Outside Colour(English):  ")  # definerer linjefarge så brukeren kan velge farge til figuren
